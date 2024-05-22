@@ -1,44 +1,13 @@
 import "./App.css";
-import List from "./assets/components/List";
+import UsersList from "./assets/components/UsersList";
 import Title from "./assets/components/Title";
-
+import users from "./bd.json";
 
 function App() {
-
-  const USERS = [
-    {
-      name: 'Daniel Sánchez',
-      active: 'Activo',
-      role: "Profesor"
-    },
-    {
-      name: 'Juan Pérez',
-      active: 'Baja',
-      role: "Profesor"
-    },
-    {
-      name: 'Juan Luis Dominguez',
-      active: 'Activo',
-      role: "Alumno"
-    },
-    {
-      name: 'Eva Soriano',
-      active: 'Baja',
-      role: "Alumno"
-    },
-    {
-      name: 'Jaime Santos',
-      active: 'Activo',
-      role: "Alumno"
-    }
-
-  ]
   return (
     <>
       <Title>Listado de Usuarios</Title>
-      <List users = { USERS }>
-
-      </List>
+      <UsersList users={users}></UsersList>
     </>
   );
 }
