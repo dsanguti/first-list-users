@@ -1,28 +1,28 @@
 [
   {
     "name": "Daniel Sánchez",
-    "active": "Activo",
-    "role": "Profesor"
+    "active": true,
+    "role": "teacher"
   },
 
   {
     "name": "Juan Pérez",
-    "active": "Baja",
-    "role": "Profesor"
+    "active": false,
+    "role": "teacher"
   },
   {
     "name": "Juan Luis Dominguez",
-    "active": "Activo",
-    "role": "Alumno"
+    "active": true,
+    "role": "student"
   },
   {
     "name": "Eva Soriano",
-    "active": "Baja",
-    "role": "Alumno"
+    "active": false,
+    "role": "student"
   },
   {
     "name": "Jaime Santos",
-    "active": "Activo",
-    "role": "Alumno"
+    "active": true,
+    "role": "student"
   }
 ]

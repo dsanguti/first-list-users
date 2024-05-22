@@ -1,0 +1,10 @@
+.active {
+  color: green;
+  font-weight: bold;
+}
+.inactive {
+  color: rgb(206, 108, 9);
+  font-weight: bold;
+}
+
+
