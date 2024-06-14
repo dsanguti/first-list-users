@@ -10,19 +10,26 @@ function UsersList({ users }) {
 
   return (
     <div className={style.list}>
-      <input
-        type="text"
-        name="search"
-        placeholder="buscar usuarios..."
-        value={search}
-        onChange={(ev) => setSearch(ev.target.value)}
-      ></input>
+      <form className={style.form}>
+        <input
+          type="text"
+          placeholder="buscar usuarios..."
+          value={search}
+          onChange={(ev) => setSearch(ev.target.value)}
+        ></input>
+        <div className={style.active}>
+          <input type="checkbox" name="active"></input>
+          <span>Sólo activos</span>
+        </div>
+        <select>
+          <option value={0}>Por defecto</option>
+          <option value={1}>Por nombre</option>
+        </select>
+      </form>
       {usersRendered}
     </div>
   );
 }
-
-
 
 const filterUsersByName = (users, search) => {
   if (!search) return users;
