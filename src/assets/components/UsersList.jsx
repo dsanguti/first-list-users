@@ -22,7 +22,7 @@ function UsersList({ users }) {
   );
 }
 
-const filterUsersByName = (users, search)=>{}
+
 
 const filterUsersByName = (users, search) => {
   if (!search) return users;
