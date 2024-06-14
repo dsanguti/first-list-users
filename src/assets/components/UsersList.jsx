@@ -19,6 +19,8 @@ function UsersList({ users }) {
   );
 }
 
+const filterUsersByName = (users, search)=>{}
+
 const filterAndRenderUsers = (users, search,)=>{
   const normalizeSearch = search.toLowerCase();
 
