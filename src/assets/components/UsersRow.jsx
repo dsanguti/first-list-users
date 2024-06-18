@@ -24,7 +24,7 @@ function UsersRow({ name, active, role = "profesor" }) {
           }}
         >
           {" "}
-          {isActive ? "Desactivar" : "Activar"}
+          {isActive ? "Inactivo" : "Activo"}
         </button>
       </div>
     </div>
