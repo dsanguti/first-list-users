@@ -1,26 +1,31 @@
 [
   {
+    "id": 0,
     "name": "Daniel Sánchez",
     "active": true,
     "role": "teacher"
   },
 
   {
+    "id": 1,
     "name": "Juan Pérez",
     "active": false,
     "role": "teacher"
   },
   {
+    "id": 2,
     "name": "Juan Luis Dominguez",
     "active": true,
     "role": "student"
   },
   {
+    "id": 3,
     "name": "Eva Soriano",
     "active": false,
     "role": "student"
   },
   {
+    "id": 4,
     "name": "Jaime Santos",
     "active": true,
     "role": "student"

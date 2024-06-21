@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Title>Listado de Usuarios</Title>
-      <UsersList users={users}></UsersList>
+      <UsersList initialUsers={users}></UsersList>
     </>
   );
 }
