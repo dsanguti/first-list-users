@@ -1,31 +1,31 @@
 [
   {
-    "id": 0,
+    "username": "dani",
     "name": "Daniel Sánchez",
     "active": true,
     "role": "teacher"
   },
 
   {
-    "id": 1,
+    "username": "juan",
     "name": "Juan Pérez",
     "active": false,
     "role": "teacher"
   },
   {
-    "id": 2,
+    "username": "juan-luis",
     "name": "Juan Luis Dominguez",
     "active": true,
     "role": "student"
   },
   {
-    "id": 3,
+    "username": "eva",
     "name": "Eva Soriano",
     "active": false,
     "role": "student"
   },
   {
-    "id": 4,
+    "username": "jaime",
     "name": "Jaime Santos",
     "active": true,
     "role": "student"

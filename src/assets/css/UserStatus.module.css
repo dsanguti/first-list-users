@@ -1,10 +1,16 @@
 .active {
-  color: green;
-  font-weight: bold;
+  color: var(--color-green);
 }
 .inactive {
-  color: rgb(206, 108, 9);
-  font-weight: bold;
+  color: var(--color-red);
 }
 
-
+.active, .inactive{
+display: flex;
+align-items: center;
+font-size: var(--text-sm);} 
+.icon{
+  height: 1rem;
+  width: 1rem;
+  margin-right: 0.25rem;
+}

@@ -2,15 +2,13 @@ import { useState } from "react";
 import style from "../css/UsersList.module.css";
 import UsersListFilters from "./UsersListFilters";
 import UsersListRows from "./UsersListRows";
-import { UsersContext } from "./lib/contexts/UserContexts";
-
 
 
 function UsersList({ initialUsers }) {
   const { search, onlyActive, sortBy, setSearch, setOnlyActive, setSortBy } =
     useFilters();
 
-  const { users, toggleUserActive } = useUsers(initialUsers);
+  const { users } = useUsers(initialUsers);
 
   let usersFiltered = filterActiveUsers(users, onlyActive);
   usersFiltered = filterUsersByName(usersFiltered, search);
@@ -26,12 +24,9 @@ function UsersList({ initialUsers }) {
         sortBy={sortBy}
         setSortBy={setSortBy}
       />
-      <UsersContext.Provider value={{toggleUserActive}}>
-        <UsersListRows
-          users={usersFiltered}
-          
-        />
-      </UsersContext.Provider>
+     
+        <UsersListRows users={usersFiltered} />
+     
     </div>
   );
 }
@@ -102,16 +97,7 @@ const useFilters = () => {
 const useUsers = (initialUsers) => {
   const [users, setUsers] = useState(initialUsers);
 
-  const toggleUserActive = (userId) => {
-    const newUsers = [...users];
-
-    const userIndex = newUsers.findIndex((user) => user.id === userId);
-    if (userIndex === -1) return;
-
-    newUsers[userIndex].active = !newUsers[userIndex].active;
-    setUsers(newUsers);
-  };
-  return { users, toggleUserActive };
+  return { users };
 };
 
 export default UsersList;
