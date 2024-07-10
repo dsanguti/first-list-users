@@ -3,7 +3,6 @@ import style from "../css/UsersList.module.css";
 import UsersListFilters from "./UsersListFilters";
 import UsersListRows from "./UsersListRows";
 
-
 function UsersList({ initialUsers }) {
   const { search, onlyActive, sortBy, setSearch, setOnlyActive, setSortBy } =
     useFilters();
@@ -24,9 +23,8 @@ function UsersList({ initialUsers }) {
         sortBy={sortBy}
         setSortBy={setSortBy}
       />
-     
-        <UsersListRows users={usersFiltered} />
-     
+
+      <UsersListRows users={usersFiltered} />
     </div>
   );
 }
@@ -37,7 +35,7 @@ const filterUsersByName = (users, search) => {
   const lowerCaseSearch = search.toLowerCase();
 
   return users.filter((user) =>
-    user.name.toLowerCase().startsWith(lowerCaseSearch)
+    user.name.toLowerCase().includes(lowerCaseSearch)
   );
 };
 
@@ -56,6 +54,19 @@ const sortUsers = (users, sortBy) => {
         if (a.name > b.name) return 1;
         if (a.name < b.name) return -1;
         return 0;
+      });
+    case 2:
+      return sortedUsers.sort((a, b) => {
+        if (a.role === b.role) return 0;
+        if (a.role === "teacher") return -1;
+        if (a.role === "student" && b.role === "other") return -1;
+        return 1;
+      });
+    case 3:
+      return sortedUsers.sort((a, b) => {
+        if (a.active === b.active) return 0;
+        if (a.active && !b.active) return -1;
+        return 1;
       });
     default:
       return sortedUsers;
@@ -80,12 +91,13 @@ const useFilters = () => {
       sortBy,
     });
 
-  const setOnlyActive = (onlyActive) =>
-    setFilters({
-      ...filters,
+  const setOnlyActive = (onlyActive) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
       onlyActive,
-    });
-
+      sortBy: onlyActive && prevFilters.sortBy === 3 ? 0 : prevFilters.sortBy,
+    }));
+  };
   return {
     ...filters,
     setSearch,
