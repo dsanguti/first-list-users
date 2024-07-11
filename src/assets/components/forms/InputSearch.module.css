@@ -1,7 +1,8 @@
 .input {
+  width: 100%;
   height: 1.5rem;
   padding: 0.5rem 1rem;
-
+  padding-left: 2rem;
   border-radius: var(--radius-sm);
   border: none;
   outline: none;
@@ -14,4 +15,17 @@
 
 .input::placeholder {
   color: var(--color-ligthgray);
+}
+
+.icon{
+  position: absolute;
+  top: .65rem;
+  left:  0.4rem;
+  height: 1.3rem;
+  width: 1.3rem;
+  fill: var(--color-ligthgray);
+}
+
+.wrapper{
+position: relative;
 }

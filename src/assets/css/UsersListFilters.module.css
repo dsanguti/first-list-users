@@ -9,8 +9,7 @@
   display: flex;
   align-items: center;
 }
-.active input[type="checkbox"] {
-  height: 1rem;
-  width: 1rem;
-  margin-right: 0.5rem;
+
+.checkbox {
+margin-right: .75rem;
 }
