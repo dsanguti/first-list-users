@@ -1,6 +1,7 @@
 .input{
   opacity: 0;
   position: absolute;
+  top: -100vh;
 }
 
 .label{
@@ -8,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  cursor: pointer;
   height: 2rem;
   width: 2rem;
   border-radius: var(--radius-sm);

@@ -1,0 +1,30 @@
+.wrapper{
+ position: relative; 
+}
+
+.select{
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  padding-right: 3rem;
+  border: none;
+  outline: none;
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-sm);
+  appearance: none; /*para acultar flecha standar que tiene el elmento select*/
+  cursor: pointer;
+}
+
+.select:focus{
+  box-shadow: var(--shadow-md);
+}
+
+.arrow{
+pointer-events: none;/* la flecha es visual, no hace nada, para que se puede activar el select haciendo clic en la flecha*/
+position: absolute;
+top: 0.5rem;
+right: 0.5rem;
+height: 1.5rem;
+width: 1.5;
+color: var(--color-gray);
+}

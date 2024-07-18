@@ -24,6 +24,7 @@
   height: 1.3rem;
   width: 1.3rem;
   fill: var(--color-ligthgray);
+  pointer-events: none;
 }
 
 .wrapper{
