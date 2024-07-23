@@ -1,0 +1,61 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+}
+
+.icon {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.black {
+  fill: var(--color-black);
+}
+
+.red {
+  fill: var(--color-red);
+}
+.red,
+.black {
+  background-color: transparent;
+}
+
+.blackFilled {
+  background-color: var(--color-black);
+  fill: var(--color-white);
+}
+.blackFilled:hover {
+  fill: var(--color-red);
+  background-color: var(--color-black-hover);
+  cursor: pointer;
+}
+.redFilled:hover{
+  fill: var(--color-black);
+  background-color: var(--color-red-hover);
+  cursor: pointer;
+}
+.redFilled {
+  background-color: var(--color-red);
+  fill: var(--color-white);
+}
+
+.red:disabled,
+.black:disabled {
+  fill: var(--color-lightgray);
+}
+
+.redFilled,
+.blackFilled {
+  fill: var(--color-white);
+}
+
+.redFilled:disabled,
+.blackFilled:disabled {
+  background-color: var(--color-lightgray);
+}
