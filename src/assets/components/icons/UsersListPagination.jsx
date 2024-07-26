@@ -2,6 +2,7 @@ import Select from "../forms/Select";
 import style from '../../css/UsersListPagination.module.css';
 import IconButton from "../buttons/IconButton";
 import EditIcon from "./EditIcon";
+import PageSelector from "../forms/PageSelector";
 
 const UsersListPagination = ({
   page,
@@ -22,6 +23,7 @@ const UsersListPagination = ({
       </Select>
       <p>Elementos por página</p>
     </div>
+    <PageSelector page={page} totalPages={3} setPage={setPage}/>
     <IconButton  kind='red' filled  icon={EditIcon} />
   </div>
 );

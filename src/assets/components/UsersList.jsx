@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import UsersListPagination from "../components/icons/UsersListPagination";
 import style from "../css/UsersList.module.css";
 import UsersListFilters from "./UsersListFilters";
@@ -12,36 +12,36 @@ import {
 } from "./lib/users/filterUsers";
 
 function UsersList({ initialUsers }) {
-  const { search, onlyActive, sortBy, setSearch, setOnlyActive, setSortBy } =
-    useFilters();
+  const {
+    filters,
+    setSearch,
+    setOnlyActive,
+    setSortBy,
+    setPage,
+    setItemsPerPage,
+  } = useFilters();
 
-  const [page, setPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(4);
-  const { users } = getUsers(initialUsers, {
-    search,
-    onlyActive,
-    sortBy,
-    page,
-    itemsPerPage,
-  });
+ 
+  const { users, totalPages } = getUsers(initialUsers, filters);
 
   return (
     <div className={style.list}>
       <UsersListFilters
-        search={search}
+        search={filters.search}
         setSearch={setSearch}
-        onlyActive={onlyActive}
+        onlyActive={filters.onlyActive}
         setOnlyActive={setOnlyActive}
-        sortBy={sortBy}
+        sortBy={filters.sortBy}
         setSortBy={setSortBy}
       />
 
       <UsersListRows users={users} />
       <UsersListPagination
-        page={page}
-        itemsPerPage={itemsPerPage}
+        page={filters.page}
+        itemsPerPage={filters.itemsPerPage}
         setPage={setPage}
         setItemsPerPage={setItemsPerPage}
+        totalPages={totalPages}
       />
     </div>
   );
