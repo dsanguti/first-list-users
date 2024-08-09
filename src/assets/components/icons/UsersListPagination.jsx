@@ -1,14 +1,15 @@
-import Select from "../forms/Select";
-import style from '../../css/UsersListPagination.module.css';
+import style from "../../css/UsersListPagination.module.css";
 import IconButton from "../buttons/IconButton";
-import EditIcon from "./EditIcon";
 import PageSelector from "../forms/PageSelector";
+import Select from "../forms/Select";
+import EditIcon from "./EditIcon";
 
 const UsersListPagination = ({
   page,
   itemsPerpage,
   setPage,
   setItemsPerPage,
+  totalPages,
 }) => (
   <div className={style.wrapper}>
     <div className={style.itemsPerPage}>
@@ -17,14 +18,15 @@ const UsersListPagination = ({
         onChange={(ev) => setItemsPerPage(Number(ev.target.value))}
       >
         {" "}
-        <option value={1}>1</option>
-        <option value={2}>2</option>
-        <option value={3}>3</option>
+        <option value={4}>4</option>
+        <option value={6}>6</option>
+        <option value={8}>8</option>
+        
       </Select>
       <p>Elementos por página</p>
     </div>
-    <PageSelector page={page} totalPages={3} setPage={setPage}/>
-    <IconButton  kind='red' filled  icon={EditIcon} />
+    <PageSelector page={page} totalPages={totalPages} setPage={setPage} />
+    <IconButton kind="red" filled icon={EditIcon} />
   </div>
 );
 export default UsersListPagination;
