@@ -1,4 +1,3 @@
-
 import UsersListPagination from "../components/icons/UsersListPagination";
 import style from "../css/UsersList.module.css";
 import UsersListFilters from "./UsersListFilters";
@@ -22,7 +21,6 @@ function UsersList() {
 
   return (
     <div className={style.list}>
-   
       <UsersListFilters
         search={filters.search}
         setSearch={setSearch}
@@ -32,7 +30,7 @@ function UsersList() {
         setSortBy={setSortBy}
       />
 
-      <UsersListRows users={users} error={error} loading={loading}/>
+      <UsersListRows users={users} error={error} loading={loading} />
       <UsersListPagination
         page={filters.page}
         itemsPerPage={filters.itemsPerPage}
@@ -43,6 +41,5 @@ function UsersList() {
     </div>
   );
 }
-
 
 export default UsersList;
