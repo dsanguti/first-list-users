@@ -3,6 +3,7 @@ import UsersListPagination from "../components/icons/UsersListPagination";
 import style from "../css/UsersList.module.css";
 import UsersListFilters from "./UsersListFilters";
 import UsersListRows from "./UsersListRows";
+
 import { useFilters } from "./lib/hooks/useFilters";
 
 import { useUsers } from "./lib/hooks/useUsers";
@@ -21,6 +22,7 @@ function UsersList() {
 
   return (
     <div className={style.list}>
+   
       <UsersListFilters
         search={filters.search}
         setSearch={setSearch}
