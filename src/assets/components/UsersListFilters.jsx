@@ -11,6 +11,7 @@ const UsersListFilters = ({
   setOnlyActive,
   sortBy,
   setSortBy,
+  slot,
 }) => (
   <div className={style.form}>
     <div className={style.row}>
@@ -26,7 +27,9 @@ const UsersListFilters = ({
         <option value={SORT_OPTIONS.DEFAULT}>Por defecto</option>
         <option value={SORT_OPTIONS.NAME}>Por nombre</option>
         <option value={SORT_OPTIONS.ROLE}>Por rol</option>
-        {!onlyActive && <option value={SORT_OPTIONS.ACTIVE}>Por activos</option>}
+        {!onlyActive && (
+          <option value={SORT_OPTIONS.ACTIVE}>Por activos</option>
+        )}
       </Select>
     </div>
     <div className={style.row}>
@@ -39,6 +42,7 @@ const UsersListFilters = ({
         />
         <p>Mostrar sólo activos</p>
       </div>
+      {slot}
     </div>
   </div>
 );
