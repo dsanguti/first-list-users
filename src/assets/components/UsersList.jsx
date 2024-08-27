@@ -12,7 +12,7 @@ import Button from "./buttons/Button";
 import UserCreateForm from "./user-forms/UserCreateForm";
 
 function UsersList() {
-  const { currentForm, setCreateForm } = useForm();
+  const { currentForm, setFiltersForm, setCreateForm } = useForm();
 
   const {
     filters,
@@ -38,7 +38,7 @@ function UsersList() {
           slot = {<Button onClick={setCreateForm}> Añadir usuario</Button>}
         />
        : 
-       <UserCreateForm></UserCreateForm>
+       <UserCreateForm onClose={setFiltersForm}></UserCreateForm>
       }
 
       <UsersListRows users={users} error={error} loading={loading} />

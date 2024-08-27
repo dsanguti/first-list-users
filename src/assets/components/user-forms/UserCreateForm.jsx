@@ -1,15 +1,22 @@
 import { USER_ROLES } from "../../constants/userRoles";
 import Button from "../buttons/Button";
+import IconButton from "../buttons/IconButton";
 import InputCheckBox from "../forms/InputCheckBox";
 import InputText from "../forms/InputText";
 import InputTextAsync from "../forms/InputTextAsync";
 import Select from "../forms/Select";
+import CrossIcon from "../icons/CrossIcon";
 import style from "./UserCreateForm.module.css";
 
-
-const UserCreateForm = () => {
+const UserCreateForm = ({ onClose }) => {
   return (
     <form className={style.form}>
+      <IconButton
+        className={style.close}
+        icon={CrossIcon}
+        filled
+        onClick={onClose}
+      />
       <div className={style.row}>
         <InputText
           className={style.input}
