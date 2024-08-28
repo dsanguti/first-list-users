@@ -21,6 +21,13 @@ box-shadow: var(--shadow-dm);}
   border-color: var(--color-black);
 }
 
+.primary:hover{
+ color: var(--color-black);
+ background-color: var(--color-white);
+ border-color: var(--color-black);
+ cursor: pointer;
+}
+
 .secondary {
   color: var(--color-black);
   background-color: var(--color-white);
