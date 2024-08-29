@@ -7,7 +7,7 @@ export const useFilters = () => {
     onlyActive: false,
     sortBy: SORT_OPTIONS.DEFAULT,
     page: 1,
-    itemsPerPage: 6
+    itemsPerPage: 4
   });
   const setSearch = (search) =>
     setFilters({

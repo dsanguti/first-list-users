@@ -25,6 +25,11 @@ color: var(--color-black);
   margin-top: 1.5rem;
 }
 
+.input {
+  width: 40%; /* Ajustar al 100% del contenedor */
+  box-sizing: border-box; /* Asegura que padding y borders no afecten el ancho total */
+}
+
 .inputTextAsyncClassName{
 width: 40%;
 padding-right: 1.5rem;

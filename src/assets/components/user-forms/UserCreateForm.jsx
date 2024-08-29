@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { USER_ROLES } from "../../constants/userRoles";
 import Button from "../buttons/Button";
 import IconButton from "../buttons/IconButton";
@@ -7,7 +7,7 @@ import InputText from "../forms/InputText";
 import InputTextAsync from "../forms/InputTextAsync";
 import Select from "../forms/Select";
 import CrossIcon from "../icons/CrossIcon";
-import { validateName } from "../lib/users/userValidations";
+import { validateName, validateUserName } from "../lib/users/userValidations";
 import style from "./UserCreateForm.module.css";
 
 const UserCreateForm = ({ onClose }) => {
@@ -34,6 +34,8 @@ const UserCreateForm = ({ onClose }) => {
           className={style.inputTextAsyncClassName}
           label="Username"
           placeholder="danisanchez"
+          success={username.value && !username.loading && !username.error}
+          loading={username.loading}
           error={username.error}
           value={username.value}
           onChange={(ev) => setUserName(ev.target.value)}
@@ -55,6 +57,35 @@ const UserCreateForm = ({ onClose }) => {
   );
 };
 
+const validateUsernameAsync = async (username, setFormValues) => {
+  let error;
+
+  try {
+    const rest = await fetch(`http://localhost:4000/users?username=${username}`);
+    if (rest.ok) {
+      const data = await rest.json();
+      if (data.length) {
+        error = "Ya está en uso";
+      } else {
+        error = undefined; // No hay error si no está en uso
+      }
+    } else {
+      error = "Error al validar"; // Error si la respuesta no es ok
+    }
+  } catch (err) {
+    error = "Error al validar"; // Error si hubo algún problema en la solicitud
+  }
+
+  setFormValues((prevFormValues) => ({
+    ...prevFormValues,
+    username: {
+      value: username,
+      error,
+      loading: false,
+    },
+  }));
+};
+
 const useFormValues = () => {
   const [formValues, setFormValues] = useState({
     name: {
@@ -63,9 +94,15 @@ const useFormValues = () => {
     },
     username: {
       value: "",
-      erorr: undefined,
+      loading: false,
+      error: undefined,
     },
   });
+
+  useEffect(() => {
+    if (formValues.username.loading)
+      validateUsernameAsync(formValues.username.value, setFormValues);
+  }, [formValues.username.value, formValues.username.loading]);
 
   const setName = (newName) => {
     const error = validateName(newName);
@@ -75,11 +112,14 @@ const useFormValues = () => {
     });
   };
   const setUserName = (newUserName) => {
-
-    const error = validateName(newUserName)
+    const error = validateUserName(newUserName);
     setFormValues({
       ...formValues,
-      username: { value: newUserName, error: error },
+      username: {
+        value: newUserName,
+        loading: newUserName && !error,
+        error: error,
+      },
     });
   };
 
